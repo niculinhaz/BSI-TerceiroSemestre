@@ -1,7 +1,6 @@
 package classes;
 
-public class ArvoreBusca {
-    private No raiz;
+public class ArvoreBusca extends Arvore{
 
     public ArvoreBusca () {
         this.raiz = null;
@@ -11,11 +10,11 @@ public class ArvoreBusca {
         setRaiz(valor);
     }
 
-    public void AdicionarNo(No no, int valor) {
-        if (no.getValor() == valor) {
-            System.out.println("O valor já existe na árvore!");
-        } else if (no == null){
+    protected void AdicionarNo(No no, int valor) {
+        if (no == null) {
             no = new No(valor);
+        } else if (no.getValor() == valor) {
+            System.out.println("O valor já existe na árvore!");
         } else {
             if (valor < no.getValor()) {
                 if (no.getEsquerda() == null) {
@@ -30,14 +29,6 @@ public class ArvoreBusca {
                     AdicionarNo(no.getDireita(), valor);
                 }
             }
-        }
-    }
-
-    public void AdicionarNo(int valor) {
-        if (raiz == null) {
-            setRaiz(valor);
-        } else {
-            AdicionarNo(raiz, valor);
         }
     }
 
@@ -73,30 +64,4 @@ public class ArvoreBusca {
     }
 
     public void RemoverNo() {}
-    
-    public int ContarNos(No no) {
-        if (no == null) return 0;
-        else return ContarNos(no.getEsquerda()) + ContarNos(no.getDireita()) + 1;
-    }
-
-    public int getAltura (No no) {
-        if (no == null) return -1;
-        else {
-            int dir = getAltura(no.getDireita());
-            int esq = getAltura(no.getEsquerda());
-            if (dir > esq) return dir + 1;
-            else return esq + 1;
-        }
-    }
-
-    public int getNiveis (No no) {
-        return getAltura(raiz) + 1;
-    }
-
-    public void setRaiz (int valor) {
-        this.raiz = new No(valor);
-    }
-    public No getRaiz () {
-        return raiz;
-    }
 }

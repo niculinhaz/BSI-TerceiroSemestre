@@ -1,65 +1,21 @@
 package classes;
 
-public class Arvore {
-    private No raiz;
+public abstract class Arvore {
+    public No raiz;
 
-    public Arvore() {
+    public Arvore () {
         this.raiz = null;
     }
 
-    public Arvore(No raiz) {
-        this.raiz = raiz;
+    public Arvore (int valor) {
+        setRaiz(valor);
     }
 
-    public void AdicionarNo(int valor) {
-        if (this.raiz == null) {
-            raiz = new No(valor);
-        } else {
-            AdicionarNo(raiz, valor);
-        }
+    protected void AdicionarNo (No no, int valor) {}
+    public void AdicionarNo (int valor) {
+        AdicionarNo(raiz, valor);
     }
-
-    private No AdicionarNo (No no, int valor) {
-        if (no == null) {
-            no = new No(valor);
-            return no;
-        } else {
-            if (valor < no.getValor()) {
-                no.setEsquerda(AdicionarNo(no.getEsquerda(), valor));
-          } else if (valor >= no.getValor()) {
-                no.setDireita(AdicionarNo(no.getDireita(), valor));
-          }
-        }
-        return no;
-    }
-
-    public void PreOrdem (No no) {
-        if (no == null) return;
-        else {
-            System.out.println(no.toString());
-            PreOrdem(no.getEsquerda());
-            PreOrdem(no.getDireita());
-        }
-    }
-
-    public void EmOrdem (No no) {
-        if (no == null) return;
-        else {
-            EmOrdem(no.getEsquerda());
-            System.out.println(no.toString());
-            EmOrdem(no.getDireita());   
-        }
-    }
-
-    public void PosOrdem (No no) {
-        if (no == null) return;
-        else {
-            PosOrdem(no.getEsquerda());
-            PosOrdem(no.getDireita());
-            System.out.println(no.toString());
-        }
-    }
-
+    
     public int ContarNos(No no) {
         if (no == null) return 0;
         else return ContarNos(no.getEsquerda()) + ContarNos(no.getDireita()) + 1;
@@ -76,7 +32,7 @@ public class Arvore {
     }
 
     public int getNiveis (No no) {
-        return getAltura(raiz) + 1;
+        return getAltura(no) + 1;
     }
 
     public boolean eCompleta () {
@@ -84,6 +40,10 @@ public class Arvore {
         
     }
     
+    public void setRaiz (int valor) {
+        this.raiz = new No(valor);
+    }
+
     public No getRaiz() {
         return raiz;
     }
