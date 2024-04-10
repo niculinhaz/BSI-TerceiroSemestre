@@ -13,7 +13,7 @@ public abstract class Arvore {
 
     protected void AdicionarNo (No no, int valor) {}
     public void AdicionarNo (int valor) {
-        AdicionarNo(raiz, valor);
+        AdicionarNo(this.raiz, valor);
     }
     
     public int ContarNos(No no) {
@@ -66,6 +66,33 @@ public abstract class Arvore {
             System.out.println(no.toString());
         }
     }
+
+    private void BuscarNo(No no, int valor) {
+        if (no.getValor() == valor) {
+            System.out.println("O nó de valor " + valor + " foi encontrado.");
+        } else {
+            if (valor < no.getValor()) {
+                if (no.getEsquerda() == null) {
+                    System.out.println("O nó de valor " + valor + " não foi encontrado.");
+                } else {
+                    BuscarNo(no.getEsquerda(), valor);
+                }
+            } else {
+                if (valor > no.getValor()) {
+                    if (no.getDireita() == null) {
+                        System.out.println("O nó de valor " + valor + " não foi encontrado.");
+                    } else {
+                        BuscarNo(no.getDireita(), valor);
+                    }
+                }
+            }
+        }
+    }
+
+    public void BuscarNo(int valor) {
+        BuscarNo(raiz, valor);
+    }
+
 
     public void setRaiz (int valor) {
         this.raiz = new No(valor);
