@@ -19,31 +19,4 @@ public class ArvoreBinaria extends Arvore {
             }
         }
     }
-
-    public void PreOrdem (No no) {
-        if (no == null) return;
-        else {
-            System.out.println(no.toString());
-            PreOrdem(no.getEsquerda());
-            PreOrdem(no.getDireita());
-        }
-    }
-
-    public void EmOrdem (No no) {
-        if (no == null) return;
-        else {
-            EmOrdem(no.getEsquerda());
-            System.out.println(no.toString());
-            EmOrdem(no.getDireita());   
-        }
-    }
-
-    public void PosOrdem (No no) {
-        if (no == null) return;
-        else {
-            PosOrdem(no.getEsquerda());
-            PosOrdem(no.getDireita());
-            System.out.println(no.toString());
-        }
-    }
 }

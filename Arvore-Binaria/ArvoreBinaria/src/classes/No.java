@@ -35,6 +35,12 @@ public class No {
         this.esquerda = no;
     }
 
+    public void setNo (No no) {
+        this.valor = no.getValor();
+        this.direita = no.getDireita();
+        this.esquerda = no.getEsquerda();
+    }
+
     @Override
     public String toString() {
         String ret = "";
