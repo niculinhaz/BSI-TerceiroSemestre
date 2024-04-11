@@ -49,7 +49,7 @@ public class App {
                 case 4:
                 limpar();
                 System.out.println("Deseja exibir a árvore percorrendo-a de que forma?");
-                System.out.println("1 - Em ordem;\n2 - Pré-Ordem;\n3 - Pós-Ordem\n4 - Em largura");
+                System.out.println("1 - Em ordem;\n2 - Pré-Ordem;\n3 - Pós-Ordem\n4 - Em largura\n5 - teste");
                 int e3 = s.nextInt();
                 s.nextLine();
                 System.out.println();
@@ -68,6 +68,10 @@ public class App {
                     break;
                     case 4:
                     a.EmLargura(a.getRaiz());
+                    continuar(s);
+                    case 5:
+                    Impressora p = new Impressora(a);
+                    System.out.println(p.imprimirArvore());
                     continuar(s);
                     default:
                     System.out.println("Código inválido. Tente novamente."); break;
@@ -106,6 +110,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        limpar();
         System.out.println("Bem-vindo ao sistema de árvores.");
         continuar(sc);
         System.out.println("Selecione o tipo de árvore que deseja criar:");
