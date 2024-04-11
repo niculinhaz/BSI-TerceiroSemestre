@@ -35,7 +35,7 @@ public class ArvoreBusca extends Arvore {
         }
     }
 
-    private void RemoverNo(No no, No anterior, int valor) {
+    protected void RemoverNo(No no, No anterior, int valor) {
         No no1, no2;
         if (no == null) {
             System.out.println("O nó de valor " + valor + " não foi encontrado.");

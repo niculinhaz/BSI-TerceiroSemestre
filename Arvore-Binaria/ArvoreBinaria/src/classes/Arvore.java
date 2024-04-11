@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.ArrayList;
+
 public abstract class Arvore {
     public No raiz;
 
@@ -14,6 +16,10 @@ public abstract class Arvore {
     protected void AdicionarNo (No no, int valor) {}
     public void AdicionarNo (int valor) {
         AdicionarNo(this.raiz, valor);
+    }
+    protected void RemoverNo (No no, No anterior, int valor) {}
+    public void RemoverNo(int valor) {
+        RemoverNo(this.raiz, this.raiz, valor);
     }
     
     public int ContarNos(No no) {
@@ -67,6 +73,24 @@ public abstract class Arvore {
         }
     }
 
+    public void EmLargura (No no) {
+        if (no != null) {
+            System.out.println(no.toString());
+        } if (no.getEsquerda() != null) {
+            EmLargura(no.getEsquerda());
+        } if (no.getDireita() != null) {
+            EmLargura(no.getDireita());
+        }
+    }
+
+    public void setRaiz (int valor) {
+        this.raiz = new No(valor);
+    }
+
+    public No getRaiz() {
+        return raiz;
+    }
+
     private void BuscarNo(No no, int valor) {
         if (no.getValor() == valor) {
             System.out.println("O nó de valor " + valor + " foi encontrado.");
@@ -91,14 +115,5 @@ public abstract class Arvore {
 
     public void BuscarNo(int valor) {
         BuscarNo(raiz, valor);
-    }
-
-
-    public void setRaiz (int valor) {
-        this.raiz = new No(valor);
-    }
-
-    public No getRaiz() {
-        return raiz;
     }
 }
