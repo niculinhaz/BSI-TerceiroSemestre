@@ -49,7 +49,7 @@ public class App {
                 case 4:
                 limpar();
                 System.out.println("Deseja exibir a árvore percorrendo-a de que forma?");
-                System.out.println("1 - Em ordem;\n2 - Pré-Ordem;\n3 - Pós-Ordem\n4 - Em largura\n5 - teste");
+                System.out.println("1 - Em ordem;\n2 - Pré-Ordem;\n3 - Pós-Ordem\n4 - Em largura\n5 - Exibição gráfica");
                 int e3 = s.nextInt();
                 s.nextLine();
                 System.out.println();
