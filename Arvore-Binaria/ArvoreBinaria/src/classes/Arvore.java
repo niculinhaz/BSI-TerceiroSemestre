@@ -11,7 +11,8 @@ public abstract class Arvore {
         setRaiz(valor);
     }
 
-    protected void AdicionarNo (No no, int valor) {}
+    protected void AdicionarNo (No no, No pai, int valor) {}
+    protected void AdicionarNo (No no, int valor)  {}
     public void AdicionarNo (int valor) {
         AdicionarNo(this.raiz, valor);
     }

@@ -42,10 +42,13 @@ public class App {
                 break;
                 case 3:
                 limpar();
-                System.out.println("Insira o valor do nó que deseja remover.");
-                a.RemoverNo(s.nextInt());
-                s.nextLine();
-                break;
+                if (a instanceof ArvoreAVL) {
+                    System.out.println("A remoção em árvores AVL ainda não foi implementada."); 
+                } else {   
+                    System.out.println("Insira o valor do nó que deseja remover.");
+                    a.RemoverNo(s.nextInt());
+                    s.nextLine();
+                } break;
                 case 4:
                 limpar();
                 System.out.println("Deseja exibir a árvore percorrendo-a de que forma?");
@@ -114,7 +117,7 @@ public class App {
         System.out.println("Bem-vindo ao sistema de árvores.");
         continuar(sc);
         System.out.println("Selecione o tipo de árvore que deseja criar:");
-        System.out.println("1 - Árvore binária;\n2 - Árvore de busca binária");
+        System.out.println("1 - Árvore binária;\n2 - Árvore de busca binária\n3 - Árvore de busca balanceada (AVL)");
         int e1 = sc.nextInt();
         sc.nextLine();
         switch (e1) {
@@ -142,8 +145,20 @@ public class App {
                     System.out.println("Ocorreu um erro ao inserir a raíz. Tente novamente.");
                 }
                 break;
+            case 3:
+                ArvoreAVL arvavl = new ArvoreAVL();
+                System.out.println("Árvore criada! Por favor, insira um valor para sua raíz.");
+                try {
+                    arvavl.setRaiz(sc.nextInt());
+                    sc.nextLine();
+                    System.out.println("Raíz inserida com sucesso!");
+                    menuOperacoes(arvavl, sc);
+                } catch (Exception e) {
+                    System.out.println("Ocorreu um erro ao inserir a raíz. Tente novamente.");
+                }
+                break;
             default:
-            System.out.println("O número que você inseriu é inválido. Por favor, tente novamente.");
+                System.out.println("O número que você inseriu é inválido. Por favor, tente novamente.");
         }
     }
 }
