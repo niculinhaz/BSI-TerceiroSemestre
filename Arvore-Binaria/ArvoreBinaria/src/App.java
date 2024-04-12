@@ -43,7 +43,8 @@ public class App {
                 case 3:
                 limpar();
                 if (a instanceof ArvoreAVL) {
-                    System.out.println("A remoção em árvores AVL ainda não foi implementada."); 
+                    System.out.println("A remoção em árvores AVL ainda não foi implementada.");
+                    continuar(s);
                 } else {   
                     System.out.println("Insira o valor do nó que deseja remover.");
                     a.RemoverNo(s.nextInt());
@@ -58,23 +59,33 @@ public class App {
                 System.out.println();
                 switch (e3) {
                     case 1:
-                    a.EmOrdem(a.getRaiz()); 
+                    limpar();
+                    a.EmOrdem(a.getRaiz());
+                    System.out.println();
                     continuar(s);
                     break;
                     case 2:
-                    a.PreOrdem(a.getRaiz()); 
+                    limpar();
+                    a.PreOrdem(a.getRaiz());
+                    System.out.println();
                     continuar(s);
                     break;
                     case 3:
+                    limpar();
                     a.PosOrdem(a.getRaiz());
+                    System.out.println();
                     continuar(s);
                     break;
                     case 4:
+                    limpar();
                     a.EmLargura(a.getRaiz());
+                    System.out.println();
                     continuar(s);
                     case 5:
+                    limpar();
                     Impressora p = new Impressora(a);
                     System.out.println(p.imprimirArvore());
+                    System.out.println();
                     continuar(s);
                     default:
                     System.out.println("Código inválido. Tente novamente."); break;

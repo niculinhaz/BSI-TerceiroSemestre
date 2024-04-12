@@ -96,5 +96,4 @@ public class ArvoreAVL extends ArvoreBusca {
             pai.setDireita(k);
         }
     }
-        // int[] nums = {40, 50, 35, 20, 10, 25, 7, 5, 6, 28};
 }
